@@ -12,7 +12,7 @@
     }
   ],
   "output_groups": [ ],
-  "template_input_params": []
+  "template_input_params": [
     {
       "name": "vsphere_server",
       "label": "vSphere Server",
@@ -157,7 +157,7 @@
         "user17": "172.16.55.47",
         "user18": "172.16.55.48",
         "user19": "172.16.55.49",
-        "user20": "172.16.55.50",
+        "user20": "172.16.55.50"
       },
       "required": true,
       "hidden": true,
@@ -231,7 +231,7 @@
         { "value": "user17","label": "user17"},
         { "value": "user18","label": "user18"},
         { "value": "user19","label": "user19"},
-        { "value": "user20","label": "user20"},
+        { "value": "user20","label": "user20"}
       ]
     },
     {
@@ -256,7 +256,7 @@
       "immutable": false,
       "secured": true,
       "group_name": "Instances"
-    },
+    }
   ],
   "template_output_params": [
   ]
