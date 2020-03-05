@@ -172,7 +172,7 @@
       "type": "string",
       "default": "172.16.255.250",
       "required": true,
-      "hidden": false,
+      "hidden": true,
       "immutable": false,
       "secured": false,
       "group_name": "Instances"
@@ -182,9 +182,9 @@
       "label": "IPv4 Network Netmask",
       "description": "Netmask in CIDR notation when using static IPs. For example 16 or 24. Set to 0 to retrieve from DHCP",
       "type": "string",
-      "default": "0",
+      "default": "16",
       "required": true,
-      "hidden": false,
+      "hidden": true,
       "immutable": false,
       "secured": false,
       "group_name": "Instances"
