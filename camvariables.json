@@ -105,7 +105,7 @@
       "hidden": false,
       "immutable": true,
       "secured": false,
-      "group_name": "Instances"
+      "group_name": "Globals"
     },
     {
       "name": "vsphere_folder",
@@ -129,7 +129,7 @@
       "hidden": false,
       "immutable": true,
       "secured": false,
-      "group_name": "Instances"
+      "group_name": "Globals"
     },
     {
       "name": "ipv4_address_map",
@@ -174,7 +174,7 @@
       "hidden": true,
       "immutable": false,
       "secured": false,
-      "group_name": "Instances"
+      "group_name": "InstanGlobalsces"
     },
     {
       "name": "ipv4_netmask",
@@ -186,7 +186,7 @@
       "hidden": true,
       "immutable": false,
       "secured": false,
-      "group_name": "Instances"
+      "group_name": "Globals"
     },
     {
       "name": "dns_servers",
@@ -198,7 +198,7 @@
       "hidden": false,
       "immutable": true,
       "secured": false,
-      "group_name": "Instances"
+      "group_name": "Globals"
     },
     {
       "name": "bootcamp_user",
