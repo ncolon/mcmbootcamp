@@ -36,7 +36,7 @@ data "vsphere_network" "network" {
 }
 
 resource "vsphere_virtual_machine" "vm" {
-  name                 = "mcmbootcamp-${var.username}-mysql"
+  name                 = "mcmbootcamp-${var.bootcamp_user}-mysql"
   resource_pool_id     = data.vsphere_compute_cluster.cluster.resource_pool_id
   datastore_cluster_id = data.vsphere_datastore_cluster.datastore.id
   folder               = var.vsphere_folder
@@ -60,15 +60,34 @@ resource "vsphere_virtual_machine" "vm" {
     template_uuid = data.vsphere_virtual_machine.template.id
     customize {
       linux_options {
-        host_name = "mcmbootcamp-${var.username}-mysql"
+        host_name = "mcmbootcamp-${var.bootcamp_user}-mysql"
         domain    = "csplab.local"
       }
       network_interface {
-        ipv4_address = var.ipv4_address_map[var.username]
+        ipv4_address = var.ipv4_address_map[var.bootcamp_user]
         ipv4_netmask = var.ipv4_netmask
       }
       ipv4_gateway    = var.ipv4_gateway
       dns_server_list = var.dns_servers
     }
+  }
+
+  connection {
+    user     = var.ssh_username
+    password = var.ssh_password
+    host     = var.ipv4_address_map[var.bootcamp_user]
+  }
+
+  provisioner "file" {
+    source      = "${path.module}/scripts"
+    destination = "/tmp/terraform_scripts"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "sudo chmod u+x /tmp/terraform_scripts/*.sh",
+      "/tmp/terraform_scripts/add-public-ssh-key.sh \"${tls_private_key.installkey.public_key_openssh}\"",
+      "/tmp/terraform_scripts/add-private-ssh-key.sh \"${tls_private_key.installkey.private_key_pem}\" \"${var.ssh_username}\""
+    ]
   }
 }

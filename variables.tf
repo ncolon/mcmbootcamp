@@ -16,14 +16,14 @@ variable "vsphere_allow_unverified_ssl" {
   default = true
 }
 
-variable "vsphere_cluster" {
-  type    = string
-  default = "GSE"
-}
-
 variable "vsphere_datacenter" {
   type    = string
   default = "CSPLAB"
+}
+
+variable "vsphere_cluster" {
+  type    = string
+  default = "GSE"
 }
 
 variable "vsphere_datastore" {
@@ -39,12 +39,10 @@ variable "vsphere_folder" {
   type    = string
   default = "GSE/MCMBootcamp"
 }
-variable "dns_servers" {
-  type = list(string)
-  default = [
-    "172.16.0.11",
-    "172.16.0.17"
-  ]
+
+variable "template" {
+  type    = string
+  default = "GSE/MCMBootcamp/templates/mcmbootcamp-mysql"
 }
 
 variable "ipv4_address_map" {
@@ -66,6 +64,11 @@ variable "ipv4_address_map" {
     user13 = "172.16.55.43"
     user14 = "172.16.55.44"
     user15 = "172.16.55.45"
+    user16 = "172.16.55.45"
+    user17 = "172.16.55.45"
+    user18 = "172.16.55.45"
+    user19 = "172.16.55.45"
+    user20 = "172.16.55.45"
   }
 }
 
@@ -79,12 +82,22 @@ variable "ipv4_netmask" {
   default = "16"
 }
 
-variable "template" {
-  type    = string
-  default = "GSE/MCMBootcamp/templates/mcmbootcamp-mysql"
+variable "dns_servers" {
+  type = list(string)
+  default = [
+    "172.16.0.11",
+    "172.16.0.17"
+  ]
 }
 
-variable "username" {
+variable "bootcamp_user" {
   type = string
 }
 
+variable "ssh_username" {
+  type = string
+}
+
+variable "ssh_password" {
+  type = string
+}
