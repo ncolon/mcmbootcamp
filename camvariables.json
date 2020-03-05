@@ -30,10 +30,9 @@
       "label": "vSphere Username",
       "description": "vSphere Username",
       "type": "string",
-      "default": "",
       "required": true,
       "hidden": false,
-      "immutable": true,
+      "immutable": false,
       "secured": false,
       "group_name": "Globals"
     },
@@ -44,7 +43,7 @@
       "type": "string",
       "required": true,
       "hidden": false,
-      "immutable": true,
+      "immutable": false,
       "secured": true,
       "group_name": "Globals"
     },
